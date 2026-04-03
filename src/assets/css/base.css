@@ -1,0 +1,113 @@
+@import 'tailwindcss';
+
+@source "../**/*.(js/jsx/ts/tsx,vue)";
+
+@theme {
+  --color-primary: #df6221;
+  --color-secondary: #222222;
+  --color-primary-light: #efbea482;
+
+  --font-Inter: 'Inter', 'sans-serif';
+  --text-2xs: 0.625rem;
+  --radius-curve: 1.5rem;
+}
+
+@custom-variant dark (&:where(.dark, .dark *)); /* Prevents system default by class */
+
+@layer utilities {
+  .bg-gradient-radial {
+    background-image: radial-gradient(var(--tw-gradient-stops));
+  }
+  .bg-gradient-conic {
+    background-image: conic-gradient(var(--tw-gradient-stops));
+  }
+}
+
+.button {
+  @apply inline-flex items-center px-6 py-3 rounded-3xl leading-5 hover:opacity-75 focus:outline-none transition duration-150 ease-in-out;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter';
+}
+
+*::-webkit-scrollbar {
+  background-color: transparent;
+  display: contents;
+  opacity: 0;
+  width: 5px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #777;
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+*:hover::-webkit-scrollbar {
+  display: block;
+}
+
+/* FONTS */
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter_18pt-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter_18pt-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter_18pt-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter_18pt-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter_18pt-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter_18pt-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter_18pt-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
