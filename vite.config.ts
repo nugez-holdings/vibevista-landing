@@ -6,8 +6,10 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import tailwindcss from '@tailwindcss/vite'
 
-// https://vite.dev/config/
+const repoName = 'vibevista-landing'
+
 export default defineConfig({
+  base: process.env.NODE_ENV === 'production' ? `/${repoName}/` : '/',
   plugins: [
     vue(),
     vueJsx(),
