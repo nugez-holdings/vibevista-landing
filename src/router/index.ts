@@ -3,6 +3,7 @@ import PolicyLayout from '@/layouts/PolicyLayout.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  scrollBehavior: () => ({ top: 0 }),
   routes: [
     {
         path: '/',
@@ -44,6 +45,12 @@ const router = createRouter({
               path: 'help',
               name: 'help',
               component: () => import('@/pages/HelpFAQ.vue'),
+          },
+
+          {
+              path: '/:pathMatch(.*)*',
+              name: 'not-found',
+              component: () => import('@/pages/NotFound.vue'),
           },
       ],
   },

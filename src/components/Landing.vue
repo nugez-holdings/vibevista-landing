@@ -20,7 +20,7 @@ const stats = ref([
   { label: 'Musicians', target: 320000, display: '0', suffix: 'K' },
   { label: 'Job listings', target: 47000, display: '0', suffix: 'K' },
   // { label: 'Countries', target: 120, display: '0', suffix: '+' },
-  { label: 'Genres', target: 80, display: '0', suffix: '+' },
+  // { label: 'Genres', target: 80, display: '0', suffix: '+' },
 ])
 
 let observer: IntersectionObserver | null = null
@@ -198,11 +198,6 @@ const musicalFacts = [
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-        <span class="text-gray-600 text-xs tracking-widest uppercase">Scroll</span>
-        <svg class="w-4 h-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
       </div>
     </section>
 
