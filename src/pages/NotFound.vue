@@ -1,7 +1,7 @@
 <template>
-  <div class="min-h-screen bg-gray-950 flex flex-col items-center justify-center text-center px-6">
+  <div class="min-h-100 bg-gray-950 flex flex-col items-center justify-center text-center px-6">
     <p class="text-primary text-xs font-semibold tracking-widest uppercase mb-4">404</p>
-    <h1 class="text-4xl font-bold text-white mb-3">Page not found</h1>
+    <h1 class="text-2xl sm:text-4xl font-bold text-white mb-3">Page not found</h1>
     <p class="text-gray-400 text-sm max-w-sm mb-8">
       The page you're looking for doesn't exist or may have been moved.
     </p>

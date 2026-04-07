@@ -67,8 +67,6 @@ const genres = [
   { name: 'Production', icon: new URL('@/assets/bookmark.svg', import.meta.url).href },
   { name: 'Events', icon: new URL('@/assets/event.svg', import.meta.url).href },
   { name: 'Coaching', icon: new URL('@/assets/contractor.svg', import.meta.url).href },
-  { name: 'Services', icon: new URL('@/assets/shopping_bag.svg', import.meta.url).href },
-  { name: 'Gospel', icon: new URL('@/assets/world.svg', import.meta.url).href },
 ]
 
 const steps = [
@@ -130,8 +128,6 @@ const features = [
   { icon: new URL('@/assets/share_tablet.svg', import.meta.url).href, title: 'Connect', description: 'Network with music enthusiasts from diverse backgrounds. Your next creative partner is here.' },
   { icon: new URL('@/assets/like_tablet.svg', import.meta.url).href, title: 'Join Groups', description: 'Collaborate and create magic with like-minded musicians by joining or creating groups.' },
   { icon: new URL('@/assets/book_tablet.svg', import.meta.url).href, title: 'Learn', description: 'Empower your musical journey — instruments, production, music theory and more.' },
-  // { icon: new URL('@/assets/calendar_tablet.svg', import.meta.url).href, title: 'Events', description: 'Stay updated on gigs, concerts, conferences, and festivals near you and nationwide.' },
-  // { icon: new URL('@/assets/bullhorn_tablet.svg', import.meta.url).href, title: 'Advertise', description: 'Reach a targeted audience. Promote your gear, studio, or music services.' },
 ]
 
 const musicalFacts = [
@@ -164,7 +160,7 @@ const musicalFacts = [
             V<span class="italic font-light">ibes</span> on <br /><em class="font-light">vibes</em>
           </h1>
 
-          <p class="hero-sub text-gray-400 text-lg leading-relaxed">
+          <p class="hero-sub text-gray-400 text-base sm:text-lg leading-relaxed">
             A world built for the music minds. Connect with musicians, discover gigs, join groups, and grow your career — all in one place.
           </p>
 
@@ -228,7 +224,7 @@ const musicalFacts = [
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-16 space-y-3">
           <p class="text-primary text-xs font-semibold tracking-widest uppercase">Simple by design</p>
-          <h2 class="text-4xl font-bold text-white">How VibeVista works</h2>
+          <h2 class="text-4xl font-bold text-white">How it works</h2>
           <p class="text-gray-400 max-w-lg mx-auto">From sign-up to your first gig in three steps.</p>
         </div>
 
@@ -244,7 +240,7 @@ const musicalFacts = [
         </div>
 
         <div class="text-center mt-12">
-          <RouterLink to="/register" class="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-white text-sm font-medium rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+          <RouterLink to="https://vibevista-web.akanbisegun1.workers.dev/auth/register" class="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-white text-sm font-medium rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
             Get started — it's free
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
           </RouterLink>
@@ -267,7 +263,7 @@ const musicalFacts = [
           <p class="text-primary text-xs font-semibold tracking-widest uppercase">What you get</p>
           <h2 class="text-4xl font-bold text-white">Everything in one place</h2>
         </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="grid sm:grid-cols-2 gap-5">
           <div v-for="feature in features" :key="feature.title" class="backdrop-blur-md bg-gray-900/70 border border-white/10 rounded-2xl p-6 space-y-3 hover:border-primary/30 transition-all group">
             <img :src="feature.icon" :alt="feature.title" class="w-12 h-12" />
             <h3 class="font-semibold text-white group-hover:text-primary transition-colors">{{ feature.title }}</h3>
@@ -324,11 +320,11 @@ const musicalFacts = [
         <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight">Your vibe is <span class="text-primary italic">waiting</span></h2>
         <p class="text-gray-400 text-lg">Join the community. Find your next gig. Build something musical.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4 pt-2">
-          <RouterLink to="/register" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-medium rounded-full hover:bg-primary/90 transition-all shadow-xl shadow-primary/20">
+          <RouterLink to="https://vibevista-web.akanbisegun1.workers.dev/auth/register" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-medium rounded-full hover:bg-primary/90 transition-all shadow-xl shadow-primary/20">
             Create Free Account
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
           </RouterLink>
-          <RouterLink to="/login" class="inline-flex items-center justify-center px-8 py-4 text-white border border-white/20 rounded-full hover:border-white/40 transition-all">
+          <RouterLink to="https://vibevista-web.akanbisegun1.workers.dev/auth/login" class="inline-flex items-center justify-center px-8 py-4 text-white border border-white/20 rounded-full hover:border-white/40 transition-all">
             Sign In
           </RouterLink>
         </div>

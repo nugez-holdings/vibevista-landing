@@ -1,57 +1,53 @@
 <template>
-  <div class="max-w-4xl mx-auto px-6">
+  <div class="max-w-3xl mx-auto px-6">
 
-    <div class="mb-16">
-      <p class="text-primary text-xs font-semibold tracking-widest uppercase mb-3">Your data</p>
-      <h1 class="text-4xl font-bold text-white mb-4">Privacy Center</h1>
-      <p class="text-gray-400 text-lg max-w-2xl">
-        We believe you should have full transparency and control over your personal data. Here's everything you need to know.
-      </p>
+    <div class="mb-12">
+      <p class="text-primary text-xs font-semibold tracking-widest uppercase mb-3">Support</p>
+      <h1 class="text-4xl font-bold text-white mb-4">Help &amp; FAQ</h1>
+      <p class="text-gray-400">Find answers to common questions or reach out to our team.</p>
     </div>
 
-    <!-- Controls grid -->
-    <div class="grid sm:grid-cols-2 gap-5 mb-16">
-      <div v-for="control in controls" :key="control.title" class="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3 hover:border-primary/30 transition-colors">
-        <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-xl">
-          {{ control.icon }}
+    <!-- Category filters -->
+    <div class="flex flex-wrap gap-2 mb-10">
+      <button
+        v-for="cat in categories"
+        :key="cat"
+        @click="activeCategory = cat"
+        class="px-4 py-2 rounded-full text-sm transition-all"
+        :class="activeCategory === cat
+          ? 'bg-primary text-white'
+          : 'bg-white/5 text-gray-400 hover:text-white border border-white/10'"
+      >
+        {{ cat }}
+      </button>
+    </div>
+
+    <!-- FAQ accordion -->
+    <div class="space-y-3 mb-16">
+      <div
+        v-for="faq in filteredFaqs"
+        :key="faq.question"
+        class="border border-white/10 rounded-xl overflow-hidden"
+      >
+        <button
+          @click="toggle(faq.question)"
+          class="w-full flex items-center justify-between p-5 text-left hover:bg-white/5 transition-colors"
+        >
+          <span class="text-white text-sm font-medium pr-4">{{ faq.question }}</span>
+          <span class="text-gray-500 text-lg flex-shrink-0 transition-transform" :class="open === faq.question ? 'rotate-45' : ''">+</span>
+        </button>
+        <div v-if="open === faq.question" class="px-5 pb-5">
+          <p class="text-gray-400 text-sm leading-relaxed">{{ faq.answer }}</p>
         </div>
-        <h3 class="text-white font-semibold">{{ control.title }}</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">{{ control.description }}</p>
-        <a v-if="control.action" href="#" class="text-primary text-sm hover:underline inline-flex items-center gap-1">
-          {{ control.action }} →
-        </a>
       </div>
     </div>
 
-    <!-- Data we collect -->
-    <div class="mb-16">
-      <h2 class="text-2xl font-semibold text-white mb-6">What data do we collect?</h2>
-      <div class="divide-y divide-white/5 border border-white/10 rounded-2xl overflow-hidden">
-        <div v-for="item in dataItems" :key="item.category" class="flex items-start gap-4 p-5">
-          <span class="text-primary text-lg mt-0.5">{{ item.icon }}</span>
-          <div class="space-y-1">
-            <p class="text-white text-sm font-medium">{{ item.category }}</p>
-            <p class="text-gray-500 text-sm">{{ item.details }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Links to related policies -->
-    <div class="grid sm:grid-cols-3 gap-4 mb-16">
-      <RouterLink v-for="link in policyLinks" :key="link.to" :to="link.to"
-        class="flex items-center justify-between bg-white/5 border border-white/10 rounded-xl px-5 py-4 hover:border-primary/30 transition-colors group">
-        <span class="text-sm text-gray-300 group-hover:text-white transition-colors">{{ link.label }}</span>
-        <span class="text-gray-600 group-hover:text-primary transition-colors">→</span>
-      </RouterLink>
-    </div>
-
-    <!-- Contact DPO -->
-    <div class="bg-white/5 border border-white/10 rounded-2xl p-8 text-center space-y-3">
-      <h2 class="text-white font-semibold text-lg">Have a privacy concern?</h2>
-      <p class="text-gray-500 text-sm">Contact our privacy team directly and we'll respond within 72 hours.</p>
-      <a href="mailto:privacy@vibevista.com" class="inline-flex items-center px-6 py-2.5 bg-primary text-white rounded-full text-sm hover:bg-primary/90 transition-all">
-        Email privacy@vibevista.com
+    <!-- Still need help -->
+    <div class="bg-white/5 border border-white/10 rounded-2xl p-8 text-center space-y-4">
+      <h2 class="text-white font-semibold text-lg">Still need help?</h2>
+      <p class="text-gray-500 text-sm">Our support team responds within 24 hours.</p>
+      <a href="mailto:support@vibevista.com" class="inline-flex items-center px-6 py-2.5 bg-primary text-white rounded-full text-sm hover:bg-primary/90 transition-all">
+        Contact Support
       </a>
     </div>
 
@@ -59,45 +55,82 @@
 </template>
 
 <script setup lang="ts">
-const controls = [
+import { ref, computed } from 'vue'
+
+const categories = ['All', 'Account', 'Listings', 'Payments', 'Privacy', 'Technical']
+const activeCategory = ref('All')
+const open = ref<string | null>(null)
+
+const toggle = (question: string) => {
+  open.value = open.value === question ? null : question
+}
+
+const faqs = [
   {
-    icon: '👤',
-    title: 'Access your data',
-    description: 'Request a full copy of the personal data we hold about you.',
-    action: 'Request data export',
+    category: 'Account',
+    question: 'How do I create an account?',
+    answer: 'Click "Sign Up" on the homepage, fill in your details, and verify your email address. The process takes less than a minute.',
   },
   {
-    icon: '✏️',
-    title: 'Correct your data',
-    description: 'Update your profile information at any time from your account settings.',
-    action: 'Go to settings',
+    category: 'Account',
+    question: 'I forgot my password. How do I reset it?',
+    answer: 'Click "Sign In" then "Forgot Password". Enter your email and we\'ll send you a reset link valid for 60 minutes.',
   },
   {
-    icon: '🗑️',
-    title: 'Delete your account',
-    description: 'Permanently delete your account and all associated data. This action is irreversible.',
-    action: 'Request deletion',
+    category: 'Account',
+    question: 'How do I delete my account?',
+    answer: 'Go to Settings → Account → Delete Account. This permanently removes your profile and all associated data. The action is irreversible.',
   },
   {
-    icon: '🔕',
-    title: 'Manage notifications',
-    description: 'Control what emails and in-app notifications you receive from VibeVista.',
-    action: 'Notification settings',
+    category: 'Account',
+    question: 'Can I change my username?',
+    answer: 'Yes, you can update your username from your profile settings at any time, subject to availability.',
+  },
+  {
+    category: 'Listings',
+    question: 'How do I post a music gig or job listing?',
+    answer: 'From your dashboard, click "Create Listing", fill in the details about the gig or opportunity, set your requirements, and publish. Listings are visible to all VibeVista members.',
+  },
+  {
+    category: 'Listings',
+    question: 'How long does a listing stay active?',
+    answer: 'Listings are active for 30 days by default. You can extend, edit, or close them at any time from your dashboard.',
+  },
+  {
+    category: 'Payments',
+    question: 'What payment methods are accepted?',
+    answer: 'We use Paystack for payment processing, which supports cards (Visa, Mastercard), bank transfers, and USSD payments depending on your region.',
+  },
+  {
+    category: 'Payments',
+    question: 'Can I get a refund?',
+    answer: 'Refunds are evaluated case by case. Contact support@vibevista.com within 7 days of a charge with your transaction reference.',
+  },
+  {
+    category: 'Privacy',
+    question: 'Who can see my profile?',
+    answer: 'Your public profile (name, photo, bio, speciality) is visible to all logged-in users. Your email, phone number, and private details are never shown publicly.',
+  },
+  {
+    category: 'Privacy',
+    question: 'How do I request my data?',
+    answer: 'Visit our Privacy Center and submit a data export request. We\'ll compile and send your data within 30 days.',
+  },
+  {
+    category: 'Technical',
+    question: 'The app isn\'t loading properly. What should I do?',
+    answer: 'Try clearing your browser cache and cookies, then reload. If the issue persists, try a different browser or contact support@vibevista.com with details of the problem.',
+  },
+  {
+    category: 'Technical',
+    question: 'I\'m not receiving email notifications. What\'s wrong?',
+    answer: 'Check your spam/junk folder first. Then verify your notification settings in your account. If emails are still missing, contact support with your registered email address.',
   },
 ]
 
-const dataItems = [
-  { icon: '📧', category: 'Account data', details: 'Name, email address, username, password (hashed), country' },
-  { icon: '🎵', category: 'Profile data', details: 'Bio, photo, speciality, genres, location, onboarding preferences' },
-  { icon: '📱', category: 'Usage data', details: 'Pages visited, features used, session duration, click patterns' },
-  { icon: '🌐', category: 'Device data', details: 'IP address, browser type, operating system, device identifiers' },
-  { icon: '💬', category: 'Communications', details: 'Messages sent through the platform, support requests' },
-  { icon: '💳', category: 'Payment data', details: 'Transaction records only — card details are never stored by us' },
-]
-
-const policyLinks = [
-  { to: '/privacy-policy', label: 'Privacy Policy' },
-  { to: '/cookies', label: 'Cookie Policy' },
-  { to: '/terms', label: 'Terms & Conditions' },
-]
+const filteredFaqs = computed(() =>
+  activeCategory.value === 'All'
+    ? faqs
+    : faqs.filter(f => f.category === activeCategory.value)
+)
 </script>
