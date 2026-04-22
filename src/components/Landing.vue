@@ -320,13 +320,21 @@ const musicalFacts = [
         <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight">Your vibe is <span class="text-primary italic">waiting</span></h2>
         <p class="text-gray-400 text-lg">Join the community. Find your next gig. Build something musical.</p>
         <div class="flex flex-col sm:flex-row justify-center gap-4 pt-2">
-          <RouterLink to="https://vibevista-web.akanbisegun1.workers.dev/auth/register" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-medium rounded-full hover:bg-primary/90 transition-all shadow-xl shadow-primary/20">
+          <a
+            href="https://vibevista-web.akanbisegun1.workers.dev/auth/register"
+            target="_blank"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-medium rounded-full hover:bg-primary/90 transition-all shadow-xl shadow-primary/20"
+          >
             Create Free Account
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-          </RouterLink>
-          <RouterLink to="https://vibevista-web.akanbisegun1.workers.dev/auth/login" class="inline-flex items-center justify-center px-8 py-4 text-white border border-white/20 rounded-full hover:border-white/40 transition-all">
+          </a>
+          <a
+            href="https://vibevista-web.akanbisegun1.workers.dev/auth/login"
+            target="_blank"
+            class="inline-flex items-center justify-center px-8 py-4 text-white border border-white/20 rounded-full hover:border-white/40 transition-all"
+          >
             Sign In
-          </RouterLink>
+          </a>
         </div>
       </div>
     </section>
