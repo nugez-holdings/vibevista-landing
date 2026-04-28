@@ -52,9 +52,9 @@
     <div class="bg-gradient-to-r from-primary/20 to-transparent border border-primary/20 rounded-2xl p-10 text-center">
       <h2 class="text-2xl font-bold text-white mb-3">Ready to join the community?</h2>
       <p class="text-gray-400 mb-6">Thousands of musicians are already on VibeVista.</p>
-      <RouterLink to="https://vibevista-web.akanbisegun1.workers.dev/auth/register" class="inline-flex items-center px-8 py-3 bg-primary text-white rounded-full text-sm font-medium hover:bg-primary/90 transition-all">
+      <a href="https://vibevista-web.akanbisegun1.workers.dev/auth/register" target="_blank" class="inline-flex items-center px-8 py-3 bg-primary text-white rounded-full text-sm font-medium hover:bg-primary/90 transition-all">
         Get Started Free
-      </RouterLink>
+      </a>
     </div>
 
   </div>

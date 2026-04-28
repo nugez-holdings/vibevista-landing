@@ -161,7 +161,7 @@ const musicalFacts = [
           </h1>
 
           <p class="hero-sub text-gray-400 text-base sm:text-lg leading-relaxed">
-            A world built for the music minds. Connect with musicians, discover gigs, join groups, and grow your career — all in one place.
+            A world built for the music minds. Connect with musicians, discover gigs, join groups, and grow your career. <br /> All in one place.
           </p>
 
           <div class="hero-cta flex items-center space-x-4">
