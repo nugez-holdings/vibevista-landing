@@ -200,7 +200,21 @@ const sections = [
     ],
   },
   {
-    title: '18. Platform Security',
+    title: '17. Advertising',
+    paragraphs: [
+      'VibeVista displays advertisements to authenticated users on the platform. Ads are contextual — the same featured ad is shown to all eligible users and is not personalised based on your profile, behaviour, or any other personal data.',
+    ],
+    items: [
+      'Ad Impressions: When an ad is displayed to you or you click on one, we record your IP address, user agent, and user ID for campaign analytics purposes only. This data is aggregated and reported to advertisers as performance metrics. No personally identifiable information is shared with advertisers.',
+      'Ad-Free Pages: Advertisements are only displayed to authenticated users. No ads are shown on public or non-authenticated pages.',
+      'Advertiser Obligations: Businesses or individuals placing ads on VibeVista agree that their ad content is accurate, lawful, and not misleading. Ads may not contain content that is offensive, discriminatory, sexually explicit, or in violation of any applicable law.',
+      'Ad Review: VibeVista reserves the right to reject, remove, or suspend any advertisement at its sole discretion without liability, including where the ad content is deemed inappropriate or inconsistent with the platform\'s values.',
+      'No Endorsement: The display of an advertisement on VibeVista does not constitute an endorsement of the advertiser, their products, or their services.',
+      'Third-Party Links: Ads may contain links to third-party websites. VibeVista is not responsible for the content, accuracy, or privacy practices of those websites.',
+    ],
+  },
+  {
+    title: '19. Platform Security',
     paragraphs: [
       'VibeVista implements multiple technical and organisational measures to protect the platform and its users. By using the platform, you agree to the following security-related obligations.',
     ],
