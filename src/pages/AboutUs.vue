@@ -7,7 +7,7 @@
       <h1 class="text-5xl font-bold text-white leading-tight mb-6">About VibeVista</h1>
       <p class="text-gray-400 text-lg leading-relaxed max-w-2xl">
         VibeVista is a platform built by musicians, for musicians. We exist to connect musical talent
-        with opportunity, community, and knowledge — all in one place.
+        with opportunity, community, and knowledg.
       </p>
     </div>
 
@@ -17,12 +17,12 @@
         <h2 class="text-2xl font-semibold text-white">Our Mission</h2>
         <p class="text-gray-400 leading-relaxed">
           Music is universal, but opportunity isn't. We're changing that. VibeVista was built to
-          democratize access to music gigs, collaborators, mentors, and an audience — regardless of
+          democratize access to music gigs, collaborators, mentors, and an audience. Regardless of
           where you are in the world or where you are in your career.
         </p>
         <p class="text-gray-400 leading-relaxed">
           Whether you're a session drummer in Lagos, a jazz pianist in PortHarcourt, or a vocal coach in
-          Ibadan — VibeVista is your professional home.
+          Ibadan, VibeVista is your professional home.
         </p>
       </div>
       <div class="space-y-4">

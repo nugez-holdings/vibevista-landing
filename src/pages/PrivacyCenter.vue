@@ -15,7 +15,10 @@
         <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-xl" v-html="control.icon"></div>
         <h3 class="text-white font-semibold">{{ control.title }}</h3>
         <p class="text-gray-500 text-sm leading-relaxed">{{ control.description }}</p>
-        <a v-if="control.action" href="https://vibevista-web.akanbisegun1.workers.dev/" target="_blank" class="text-primary text-sm hover:underline inline-flex items-center gap-1">
+        <RouterLink v-if="control.to" :to="control.to" class="text-primary text-sm hover:underline inline-flex items-center gap-1">
+          {{ control.action }} →
+        </RouterLink>
+        <a v-else-if="control.href" :href="control.href" target="_blank" class="text-primary text-sm hover:underline inline-flex items-center gap-1">
           {{ control.action }} →
         </a>
       </div>
@@ -66,8 +69,9 @@ const controls = [
       </svg>
     `,
     title: 'Access your data',
-    description: 'Request a full copy of the personal data we hold about you.',
+    description: 'Request a full copy of the personal data we hold about you, including your profile, activity, and transaction history.',
     action: 'Request data export',
+    href: 'https://vibevista-web.akanbisegun1.workers.dev/',
   },
   {
     icon: `
@@ -77,32 +81,31 @@ const controls = [
       </svg>
     `,
     title: 'Correct your data',
-    description: 'Update your profile information at any time from your account settings.',
+    description: 'Update your profile information at any time from your account settings. For data you cannot edit directly, contact our privacy team.',
     action: 'Go to settings',
+    href: 'https://vibevista-web.akanbisegun1.workers.dev/',
   },
   {
     icon: `
       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="3 6 5 6 21 6"/>
-        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
-        <path d="M10 11v6M14 11v6"/>
-        <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+        <path d="M4 12h16M4 6h16M4 18h7"/>
       </svg>
     `,
-    title: 'Delete your account',
-    description: 'Permanently delete your account and all associated data. This action is irreversible.',
-    action: 'Request deletion',
+    title: 'How we share your data',
+    description: 'We do not sell your data. We share it only with trusted service providers — including Paystack for payments, Mux for video, and Cloudinary for file storage — solely to operate the platform.',
+    action: 'Read our Privacy Policy',
+    to: '/privacy-policy',
   },
   {
     icon: `
       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
       </svg>
     `,
-    title: 'Manage notifications',
-    description: 'Control what emails and in-app notifications you receive from VibeVista.',
-    action: 'Notification settings',
+    title: 'Your data rights',
+    description: 'You have the right to access, correct, delete, and port your personal data. You may also object to certain types of processing. Contact our privacy team to exercise any of these rights.',
+    action: 'See your rights',
+    to: '/privacy-policy',
   },
 ]
 
@@ -131,11 +134,40 @@ const dataItems = [
   {
     icon: `
       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+      </svg>
+    `,
+    category: 'Creator profile data',
+    details: 'Headline, bio, website, bank name, account number, account name, and Paystack subaccount and recipient codes — collected only if you set up a creator profile',
+  },
+  {
+    icon: `
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+      </svg>
+    `,
+    category: 'Course content',
+    details: 'Videos, lesson text, attachments, and course metadata uploaded by creators — stored via Mux (video) and Cloudinary (files)',
+  },
+  {
+    icon: `
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
       </svg>
     `,
     category: 'Usage data',
     details: 'Pages visited, features used, session duration, click patterns',
+  },
+  {
+    icon: `
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/>
+        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+      </svg>
+    `,
+    category: 'Learning activity',
+    details: 'Courses enrolled in, lessons completed, progress percentage, course reviews submitted',
   },
   {
     icon: `
@@ -164,7 +196,7 @@ const dataItems = [
       </svg>
     `,
     category: 'Payment data',
-    details: 'Transaction records only — card details are never stored by us',
+    details: 'Enrollment amounts, platform fees, creator earnings, and Paystack payment references — card details are never stored by us',
   },
 ]
 

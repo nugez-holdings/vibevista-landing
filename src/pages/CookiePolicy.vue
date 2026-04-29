@@ -4,7 +4,7 @@
     <div class="mb-12">
       <p class="text-primary text-xs font-semibold tracking-widest uppercase mb-3">Legal</p>
       <h1 class="text-4xl font-bold text-white mb-4">Cookie Policy</h1>
-      <p class="text-gray-500 text-sm">Last updated: January 1, 2025</p>
+      <p class="text-gray-500 text-sm">Last updated: January 1, 2026</p>
     </div>
 
     <div class="space-y-10 text-gray-400 leading-relaxed">
