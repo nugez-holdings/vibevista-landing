@@ -51,7 +51,8 @@ const sections = [
       'Learning Activity: Courses you enroll in, lessons you complete, progress data, and reviews you submit.',
       'Course Content: If you are a creator, the videos, text, attachments, and other materials you upload to the platform.',
       'Usage Data: Pages visited, features used, time spent, device type, browser, IP address, and referring URLs.',
-      'Communications: Messages you send to our support team or through any in-platform communication features.',
+      'Communications: Messages you send to our support team or through any in-platform communication features. Private messages are end-to-end encrypted and stored as ciphertext only — we cannot access their content.',
+      'Encryption Keys: Your public key and an encrypted backup of your wrapped private key, stored solely to enable cross-device access. Your private key is never stored in plaintext on our servers.',
     ],
   },
   {
@@ -91,6 +92,7 @@ const sections = [
     paragraphs: [
       'We retain your personal information for as long as your account is active or as needed to provide you with our services. If you delete your account, we will remove your personal data within 30 days, except where retention is required by law or for legitimate business purposes such as resolving disputes or preventing fraud.',
       'Creator payout records and enrollment financial data are retained for a minimum of 7 years for accounting and regulatory compliance purposes, even after account deletion.',
+      'Private messages are automatically and permanently deleted after 90 days. This deletion is irreversible and applies to all parties in the conversation.',
     ],
   },
   {
@@ -102,8 +104,19 @@ const sections = [
   {
     title: '7. Data Security',
     paragraphs: [
-      'We implement industry-standard security measures to protect your information, including encrypted connections (HTTPS), hashed passwords, and access controls. However, no method of transmission or storage is completely secure, and we cannot guarantee absolute security.',
-      'Creator bank account details and Paystack codes are stored with restricted access and are only used for the purpose of processing payouts.',
+      'We take the security of your personal data seriously and implement multiple layers of protection across the platform. However, no method of transmission or storage is completely secure, and we cannot guarantee absolute security.',
+    ],
+    items: [
+      'In-Transit Encryption: All data transmitted between your device and our servers is encrypted using HTTPS (TLS). This protects your data from interception during transmission.',
+      'Password Security: Passwords are never stored in plaintext. We use bcrypt hashing with a unique salt per user, making stored passwords computationally infeasible to reverse.',
+      'Authentication: We use Laravel Sanctum with cookie-based authentication. Session cookies are issued with HttpOnly, Secure, and SameSite flags to mitigate cross-site scripting and request forgery attacks. Only one active session is permitted per user at a time — starting a new session deactivates all previous ones.',
+      'End-to-End Encrypted Messaging: Private messages on VibeVista are end-to-end encrypted using the NaCl cryptography library (X25519 key exchange, XSalsa20-Poly1305 encryption). Messages are encrypted on your device before being sent and can only be decrypted by the intended recipient. VibeVista servers store and deliver ciphertext only — we cannot read your messages.',
+      'Encryption Key Management: Each user has a cryptographic keypair. Your public key is stored on our servers. Your private key is encrypted on your device using a key derived from your password via PBKDF2 (Web Crypto API) and stored in your browser\'s IndexedDB. An encrypted backup of your wrapped private key is held on our servers solely to enable access from a different device — it cannot be decrypted without your password.',
+      'Message Retention: Private messages are automatically and permanently deleted after 90 days. This minimises the amount of communication data held on our servers at any time.',
+      'Role-Based Access Control: Access to platform data is governed by role-based permissions. Admin functions are restricted to authorised personnel only, and access to sensitive data such as creator bank details and Paystack codes is further restricted within the admin system.',
+      'Data Minimisation: We store only the data necessary to operate the platform. Sensitive data such as card details are never stored by us — all card processing is delegated to Paystack.',
+      'Periodic Audits: We conduct regular reviews of our data storage and access practices to ensure that only necessary data is retained and that it is appropriately protected.',
+      'Creator Financial Data: Bank account details and Paystack subaccount and recipient codes are stored with restricted access and are used solely for the purpose of processing creator payouts.',
     ],
   },
   {

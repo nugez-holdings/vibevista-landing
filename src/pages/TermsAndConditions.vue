@@ -184,5 +184,32 @@ const sections = [
       'VibeVista operates a repeat infringer policy. Users or creators who receive multiple valid takedown notices may have their accounts suspended or permanently terminated at VibeVista\'s sole discretion.',
     ],
   },
+  {
+    title: '17. Messaging & Communications',
+    paragraphs: [
+      'VibeVista provides a private messaging feature that allows users to communicate with each other on the platform. By using this feature, you agree to the following terms.',
+    ],
+    items: [
+      'End-to-End Encryption: All private messages are end-to-end encrypted using industry-standard cryptography. VibeVista cannot read, access, or disclose the content of your private messages. You are solely responsible for the content you send.',
+      'Permitted Content: You may send text messages, images, and files not exceeding 3MB in size. You may not use the messaging feature to send illegal content, spam, harassment, unsolicited promotional material, or content that violates these Terms.',
+      'Prohibited Files: You may not send executable files, malware, or content that infringes third-party intellectual property rights.',
+      'Message Retention: Messages are automatically and permanently deleted after 90 days. This deletion is irreversible. VibeVista is not responsible for any loss of messages resulting from this policy.',
+      'Key Management: Your encryption private key is stored securely on your device. If you lose access to your private key (for example, by clearing your browser data without a cross-device backup), you will lose the ability to decrypt older messages. VibeVista cannot recover message content on your behalf.',
+      'No Liability for Content: VibeVista is not liable for the content of private messages exchanged between users. Users who receive abusive, threatening, or illegal messages should report them to support@vibevista.com.',
+      'Law Enforcement: While we cannot read the content of encrypted messages, we will cooperate with law enforcement requests to the extent permitted by law and our technical capabilities.',
+    ],
+  },
+  {
+    title: '18. Platform Security',
+    paragraphs: [
+      'VibeVista implements multiple technical and organisational measures to protect the platform and its users. By using the platform, you agree to the following security-related obligations.',
+    ],
+    items: [
+      'Account Security: You are responsible for maintaining the security of your account credentials. Do not share your password with anyone. VibeVista will never ask for your password via email or chat.',
+      'Single Session Policy: Only one active session is permitted per account at a time. Starting a new session on a different device will automatically terminate all existing sessions.',
+      'Prohibited Activities: You may not attempt to circumvent, reverse-engineer, or interfere with any security measure on the platform, including but not limited to encryption, authentication systems, or access controls.',
+      'Vulnerability Reporting: If you discover a security vulnerability on the platform, please report it responsibly to security@vibevista.com. Do not exploit or publicise vulnerabilities before giving us a reasonable opportunity to address them.',
+    ],
+  },
 ]
 </script>
